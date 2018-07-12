@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Primer Blog</title>
-</head>
-<body>
-    <div>
-        <h1>David's Blog!</h1>
-    </div>
-    
+{% extends 'blog/base.html' %}
+
+{% block content %}
     {% for post in posts %}
-        <div>
-            <p>Fecha de publicacion: {{ post.fpublicacion}} </p>
-            <h2><a href=""> {{ post.titulo }} </a></h2>
-            <p>{{ post.texto}} </p>
+        <div class="post">
+            <div class="date">
+                {{ post.fpublicacion }}
+            </div>        
+            <h2><a href="{% url 'post_detail' pk=post.pk %}"> {{ post.titulo }} </a></h2>
+            <p>{{ post.texto|linebreaksbr }} </p>
         </div>
     {% endfor %}
-
-</body>
-</html>
+{% endblock %}
