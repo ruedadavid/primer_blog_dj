@@ -10,15 +10,14 @@
     <div>
         <h1>David's Blog!</h1>
     </div>
-    <div>
-        <p>Fecha de Publicación: fpublicacion</p>
-        <h2><a href="">Primer post</a></h2>
-        <p>Texto</p>
-    </div>
-    <div>
-        <p>Fecha de Publicación: fpublicacion</p>
-        <h2><a href="">Segundo post</a></h2>
-        <p>Texto</p>
-    </div>
+    
+    {% for post in posts %}
+        <div>
+            <p>Fecha de publicacion: {{ post.fpublicacion}} </p>
+            <h2><a href=""> {{ post.titulo }} </a></h2>
+            <p>{{ post.texto}} </p>
+        </div>
+    {% endfor %}
+
 </body>
 </html>
